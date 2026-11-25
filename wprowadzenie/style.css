@@ -1,0 +1,17 @@
+.starter-example {
+  max-width: 78ch;
+}
+
+.starter-example details {
+  border-top: 1px solid var(--edge);
+  padding: 12px 0 0;
+}
+
+.starter-example summary {
+  font-weight: 650;
+  color: var(--mint);
+}
+
+.starter-example details p {
+  margin-top: 10px;
+}

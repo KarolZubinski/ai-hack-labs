@@ -1,0 +1,46 @@
+.tabwrap {
+  overflow-x: auto;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.result-ok {
+  color: var(--mint);
+}
+
+.result-no {
+  color: #eaca90;
+}
+
+.reporttools {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+
+.reporttools .clear {
+  margin-left: auto;
+}
+
+@media (max-width:570px) {
+  .reporttools .clear {
+    margin-left: 0;
+  }
+}
+
+.case-report a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-report {
+  margin: 18px 0;
+}
+
+.case-report {
+  color: var(--muted);
+}

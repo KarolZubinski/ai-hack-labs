@@ -1,0 +1,45 @@
+.road {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 14px;
+}
+
+.road .box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.road .box h2 {
+  margin: 4px 0;
+}
+
+.road .box .btn {
+  align-self: start;
+  margin-top: auto;
+}
+
+.road .box p {
+  margin-bottom: 10px;
+}
+
+@media (max-width:1150px) {
+  .road {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width:570px) {
+  .road {
+    grid-template-columns: 1fr;
+  }
+}
+
+.road {
+  grid-auto-rows: 1fr;
+  align-items: stretch;
+}
+
+.road .box p {
+  flex: 1;
+}

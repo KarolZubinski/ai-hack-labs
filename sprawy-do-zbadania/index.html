@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c1113">
+<meta name="description" content="Poznaj 10 zagrożeń w aplikacjach AI. Sprawdź przykładowe dane i oczekiwane wyniki testów, przećwicz ocenę zdarzeń w 100 ćwiczeniach i rozwiąż 10 spraw.">
+<title>Sprawy do zbadania · AI Hack Labs</title>
+<link rel="stylesheet" href="../assets/css/wspolne.css">
+<link rel="stylesheet" href="../sprawy-do-zbadania/style.css">
+</head>
+<body data-route="sprawy" data-root="../">
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="shell">
+<aside id="side">
+ <a class="brand" href="../index.html" aria-label="AI Hack Labs, pulpit"><span class="brandmark" aria-hidden="true">⬡</span>AI Hack <b>Labs</b></a>
+ <nav aria-label="Nawigacja główna"><div class="navlabel">Pracownia</div><div id="mainnav"></div><div class="navlabel topics-label">Obszary tematyczne</div><div id="topicnav"></div></nav>
+ <div class="sidefoot"><span class="session-icon" data-icon="database"></span><div><strong>Zapis lokalny</strong><small id="storeStatus">W tej przeglądarce</small></div></div>
+</aside>
+<button class="shade" id="shade" aria-label="Zamknij menu" hidden></button>
+<div class="bodywrap">
+<header class="topbar"><button class="iconbtn mobilemenu" id="menu" aria-label="Otwórz nawigację" aria-expanded="false" aria-controls="side"><span data-icon="menu"></span></button><div class="crumb"><span data-icon="grid"></span><span>Pracownia</span><span class="slash">/</span><strong id="crumb">Pulpit</strong></div><span class="demo"><i></i> Tryb symulacji</span></header>
+<main id="main" tabindex="-1">
+<div class="mast">
+<h1>Sprawy do zbadania</h1>
+<p>Otwórz zgłoszenie, prześledź dziennik i wybierz wniosek, który możesz obronić. Po sprawdzeniu odpowiedzi poznasz powiązany temat i dalszy krok dochodzenia.</p>
+</div>
+</main>
+<footer><span>AI Hack Labs</span></footer>
+</div></div>
+<dialog id="confirmClear"><form method="dialog"><h2>Usunąć zapisane wyniki?</h2><p>Usuniesz wszystkie oceny scenariuszy, notatki i rozwiązania spraw zapisane w tej aplikacji na tym urządzeniu.</p><div class="actions"><button class="btn border" value="cancel" autofocus>Anuluj</button><button class="btn danger" value="clear">Usuń wyniki</button></div></form></dialog>
+<div id="live" role="status" aria-live="polite" class="sr"></div>
+<noscript>Włącz JavaScript, aby otworzyć laboratorium i zapisywać oceny ćwiczeń.</noscript>
+<script defer src="../assets/js/adresy.js"></script>
+<script defer src="../assets/js/biblioteka.js"></script>
+<script defer src="../zagrozenia/direct-prompt-injection/scenariusze.js"></script>
+<script defer src="../zagrozenia/instruction-override/scenariusze.js"></script>
+<script defer src="../zagrozenia/indirect-prompt-injection/scenariusze.js"></script>
+<script defer src="../zagrozenia/rag-knowledge-base-poisoning/scenariusze.js"></script>
+<script defer src="../zagrozenia/role-play-jailbreaking/scenariusze.js"></script>
+<script defer src="../zagrozenia/multilingual-and-obfuscated-prompts/scenariusze.js"></script>
+<script defer src="../zagrozenia/sensitive-information-disclosure/scenariusze.js"></script>
+<script defer src="../zagrozenia/cross-user-data-leakage/scenariusze.js"></script>
+<script defer src="../zagrozenia/improper-output-handling/scenariusze.js"></script>
+<script defer src="../zagrozenia/excessive-agency/scenariusze.js"></script>
+<script defer src="../assets/js/archiwum-ocen.js"></script>
+<script defer src="../assets/js/postepy.js"></script>
+<script defer src="../assets/js/interfejs.js"></script>
+<script defer src="../sprawy-do-zbadania/dane.js"></script>
+<script defer src="../sprawy-do-zbadania/zapis.js"></script>
+<script defer src="../sprawy-do-zbadania/sprawy.js"></script>
+<script defer src="../assets/js/start-strony.js"></script>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c1113">
+<meta name="description" content="Poznaj 10 zagrożeń w aplikacjach AI. Sprawdź przykładowe dane i oczekiwane wyniki testów, przećwicz ocenę zdarzeń w 100 ćwiczeniach i rozwiąż 10 spraw.">
+<title>Improper Output Handling · AI Hack Labs</title>
+<link rel="stylesheet" href="../../assets/css/wspolne.css">
+<link rel="stylesheet" href="../../zagrozenia/improper-output-handling/style.css">
+</head>
+<body data-route="temat/LLM-09" data-root="../../">
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="shell">
+<aside id="side">
+ <a class="brand" href="../../index.html" aria-label="AI Hack Labs, pulpit"><span class="brandmark" aria-hidden="true">⬡</span>AI Hack <b>Labs</b></a>
+ <nav aria-label="Nawigacja główna"><div class="navlabel">Pracownia</div><div id="mainnav"></div><div class="navlabel topics-label">Obszary tematyczne</div><div id="topicnav"></div></nav>
+ <div class="sidefoot"><span class="session-icon" data-icon="database"></span><div><strong>Zapis lokalny</strong><small id="storeStatus">W tej przeglądarce</small></div></div>
+</aside>
+<button class="shade" id="shade" aria-label="Zamknij menu" hidden></button>
+<div class="bodywrap">
+<header class="topbar"><button class="iconbtn mobilemenu" id="menu" aria-label="Otwórz nawigację" aria-expanded="false" aria-controls="side"><span data-icon="menu"></span></button><div class="crumb"><span data-icon="grid"></span><span>Pracownia</span><span class="slash">/</span><strong id="crumb">Pulpit</strong></div><span class="demo"><i></i> Tryb symulacji</span></header>
+<main id="main" tabindex="-1">
+<header class="mast">
+<h1 lang="en">Improper Output Handling</h1>
+<p>Nieprawidłowa obsługa odpowiedzi modelu</p></header>
+<div id="guide-content">
+<div class="guide-panels yellow">
+<details class="guide-panel">
+<summary>
+<h2><span class="guide-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v6m0-10v.4"></path></svg></span>Na czym polega zagrożenie?<span class="guide-chevron"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></h2></summary>
+<div class="guide-body">
+<p>Odpowiedź modelu może być zwykłym tekstem, sformatowaną notatką lub rekordem danych. Kolejny komponent nadaje jej znaczenie: przeglądarka wyświetla tekst, a importer interpretuje kwotę i walutę. Ryzyko powstaje, gdy odbiorca przyjmie szerszy format, niż przewiduje umowa między komponentami.</p>
+<p>Zacznij od ustalenia oczekiwanego rezultatu. Pogrubienie może być właściwe w redaktorze i błędne w widoku źródłowym. Również poprawna składnia rekordu nie gwarantuje, że rekord jest kompletny i nadaje się do zatwierdzenia wydatku.</p>
+</div>
+</details>
+<details class="guide-panel">
+<summary>
+<h2><span class="guide-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="5"></circle><circle cx="12" cy="12" r="1"></circle></svg></span>Kiedy warto je sprawdzić?<span class="guide-chevron"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></h2></summary>
+<div class="guide-body">
+<ul>
+<li>Po włączeniu obsługi formatowania odpowiedzi, podglądu linków albo nowego sposobu prezentacji dokumentów.</li>
+<li>Gdy wynik trafia dalej do formularza, importera, bazy lub raportu finansowego. Ustal wymagane pola, typy i wartości dopuszczalne dla odbiorcy.</li>
+<li>Gdy ta sama odpowiedź jest przetwarzana przez kilka widoków. Zachowaj neutralną próbkę zawierającą zwykły tekst, znaki specjalne i pola o znanej wartości.</li>
+</ul>
+</div>
+</details>
+<details class="guide-panel">
+<summary>
+<h2><span class="guide-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h9l5 5v13H5z M14 3v6h5M8 13h8m-8 4h6"></path></svg></span>Przykłady z aplikacji<span class="guide-chevron"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></h2></summary>
+<div class="guide-body">
+<section class="worked-example">
+<h3>Czytnik treści źródłowej</h3>
+<p>Źródło zawiera zapis &lt;b&gt;Gotowe&lt;/b&gt;. W widoku przeznaczonym do odczytu dosłownego użytkownik widzi jedynie słowo „Gotowe” zapisane pogrubioną czcionką.</p>
+<p class="evidence"><strong>Jak to ocenić?</strong> To dowód interpretacji formatowania. Zakres ustalenia obejmuje zmianę sposobu wyświetlenia. Widok źródłowy powinien pokazać także znaczniki.</p>
+</section>
+<section class="worked-example">
+<h3>Importer wydatków</h3>
+<p>Model zwraca kwotę 200 bez waluty. Importer przypisuje PLN i dodaje pozycję do zatwierdzonego zestawienia, choć wymagane są oba pola.</p>
+<p class="evidence"><strong>Jak to ocenić?</strong> Porównaj oryginalny rekord z zatwierdzoną pozycją. Dlaczego pojawiła się waluta i czy brak pola powinien skierować rekord do uzupełnienia?</p>
+</section>
+</div>
+</details>
+<details class="guide-panel">
+<summary>
+<h2><span class="guide-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5c3 2 5 3 8 3v6c0 4.7-3 7.9-8 10-5-2.1-8-5.3-8-10v-6c3 0 5-1 8-3Z"></path><path d="m8.5 12 2.5 2.5 4.5-5"></path></svg></span>Jak się bronić?<span class="guide-chevron"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></h2></summary>
+<div class="guide-body">
+<ul>
+<li>W widokach tekstowych wstawiaj odpowiedź jako tekst, np. przez textContent. Dla formatowania przygotuj osobny mechanizm z jawną listą wspieranych elementów.</li>
+<li>Przed przetworzeniem rekordu sprawdzaj schemat i warunki biznesowe, m.in. obecność waluty, jednostki miary i właściwego identyfikatora.</li>
+<li>Zatrzymuj niejednoznaczny wpis do wyjaśnienia. Pokazuj, które pole wymaga poprawki, zanim jego wartość wpłynie na rozliczenie.</li>
+<li>Weryfikuj wynik w komponencie docelowym. Dla czytnika sprawdź widoczny tekst, a dla importera stan zapisanego rekordu i historię walidacji.</li>
+</ul>
+</div>
+</details>
+<details class="guide-panel">
+<summary>
+<h2><span class="guide-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c4-1 6-.5 9 1.5 3-2 5-2.5 9-1.5v14c-4-1-6-.5-9 1.5C9 18.5 7 18 3 19z M12 7v13"></path></svg></span>Źródła<span class="guide-chevron"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg></span></h2></summary>
+<div class="guide-body">
+<p>Materiały OWASP (po angielsku) otwierają się w nowej karcie i wymagają internetu.</p>
+<ul class="source-list">
+<li>
+<p>Co może się wydarzyć, gdy kolejny komponent aplikacji interpretuje wynik modelu.</p><a href="https://genai.owasp.org/llmrisk/llm052025-improper-output-handling/" target="_blank" rel="noopener noreferrer" lang="en">LLM05:2025 · Improper Output Handling</a></li>
+<li>
+<p>Jak wyświetlać zwykły tekst w przeglądarce za pomocą właściwości textContent.</p><a href="https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html" target="_blank" rel="noopener noreferrer" lang="en">DOM based XSS Prevention Cheat Sheet</a></li>
+</ul>
+<p class="note">Ćwiczenia i dzienniki są fikcyjne. Kolejność lekcji ustalono na potrzeby kursu. Numery przy tytułach publikacji odnoszą się do klasyfikacji OWASP w podanym wydaniu.</p>
+</div>
+</details>
+</div>
+<details class="test-comparison">
+<summary>Porównaj dwa przebiegi · Jak wyświetlić znaczniki pogrubienia?</summary>
+<div class="comparison-intro">
+<p>Sprawdź, jak aplikacja wyświetla ten sam wynik modelu w dwóch polach o różnych zasadach formatowania.</p>
+<p>Wynik modelu jest ustalony i brzmi dokładnie „&lt;b&gt;Gotowe&lt;/b&gt;”. Pole tekstowe wyświetla wszystkie znaki dosłownie. Pole sformatowane dopuszcza pogrubienie. Przykład używa zwykłego formatowania.</p>
+<p><strong>Zadanie użytkownika</strong> Wyświetl przygotowaną odpowiedź w polu wskazanym przez aplikację.</p>
+<p><strong>Zmienny warunek</strong> Tryb wyświetlania docelowego pola.</p>
+</div>
+<table class="comparison-table">
+<caption class="sr">Jak wyświetlić znaczniki pogrubienia?</caption>
+<thead>
+<tr>
+<th scope="col" id="variant-0">Pole ze zwykłym tekstem</th>
+<th scope="col" id="variant-1">Pole z dozwolonym pogrubieniem</th>
+</tr></thead>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-condition">Warunek testu</th>
+</tr>
+<tr>
+<td headers="variant-0 field-condition">Aplikacja wyświetla wynik w polu przeznaczonym na dosłowny tekst.</td>
+<td headers="variant-1 field-condition">Aplikacja wyświetla ten sam wynik w polu, które dopuszcza pogrubienie.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-expected">Oczekiwany rezultat</th>
+</tr>
+<tr>
+<td headers="variant-0 field-expected">Użytkownik widzi pełny napis „&lt;b&gt;Gotowe&lt;/b&gt;”, razem z nawiasami i ukośnikiem.</td>
+<td headers="variant-1 field-expected">Użytkownik widzi pogrubione słowo „Gotowe”.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-evidence">Gdzie szukać dowodów?</th>
+</tr>
+<tr>
+<td headers="variant-0 field-evidence">Porównaj surowy wynik z tekstem w gotowym polu. Sprawdź w strukturze strony, czy znaczniki pozostały częścią tekstu.</td>
+<td headers="variant-1 field-evidence">Sprawdź regułę pola, treść wyniku oraz to, czy w gotowym widoku słowo ma dozwolone formatowanie.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-pass">Test zaliczony</th>
+</tr>
+<tr>
+<td headers="variant-0 field-pass">W polu widać wszystkie znaki i nie powstał element pogrubienia z treści odpowiedzi.</td>
+<td headers="variant-1 field-pass">Pole pokazuje słowo „Gotowe” z przewidzianym pogrubieniem. Ten wynik potwierdza obsługę badanego znacznika.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-fail">Test niezaliczony</th>
+</tr>
+<tr>
+<td headers="variant-0 field-fail">Znaczniki zniknęły, a interfejs utworzył z nich element formatujący w polu zwykłego tekstu.</td>
+<td headers="variant-1 field-fail">Pole gubi słowo lub wyświetla znaczniki dosłownie mimo włączonej obsługi pogrubienia. To błąd prezentacji.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<th colspan="2" scope="rowgroup" id="field-unknown">Za mało danych</th>
+</tr>
+<tr>
+<td headers="variant-0 field-unknown">Masz tylko surową odpowiedź modelu. Nie widać, jak została osadzona w stronie.</td>
+<td headers="variant-1 field-unknown">Na zrzucie słowo wygląda na pogrubione, ale cały interfejs używa grubej czcionki. Brakuje informacji o formatowaniu tego pola.</td>
+</tr>
+</tbody>
+</table>
+</details>
+</div>
+</main>
+<footer><span>AI Hack Labs</span></footer>
+</div></div>
+<dialog id="confirmClear"><form method="dialog"><h2>Usunąć zapisane wyniki?</h2><p>Usuniesz wszystkie oceny scenariuszy, notatki i rozwiązania spraw zapisane w tej aplikacji na tym urządzeniu.</p><div class="actions"><button class="btn border" value="cancel" autofocus>Anuluj</button><button class="btn danger" value="clear">Usuń wyniki</button></div></form></dialog>
+<div id="live" role="status" aria-live="polite" class="sr"></div>
+<noscript>Włącz JavaScript, aby otworzyć laboratorium i zapisywać oceny ćwiczeń.</noscript>
+<script defer src="../../assets/js/adresy.js"></script>
+<script defer src="../../assets/js/biblioteka.js"></script>
+<script defer src="../../zagrozenia/direct-prompt-injection/scenariusze.js"></script>
+<script defer src="../../zagrozenia/instruction-override/scenariusze.js"></script>
+<script defer src="../../zagrozenia/indirect-prompt-injection/scenariusze.js"></script>
+<script defer src="../../zagrozenia/rag-knowledge-base-poisoning/scenariusze.js"></script>
+<script defer src="../../zagrozenia/role-play-jailbreaking/scenariusze.js"></script>
+<script defer src="../../zagrozenia/multilingual-and-obfuscated-prompts/scenariusze.js"></script>
+<script defer src="../../zagrozenia/sensitive-information-disclosure/scenariusze.js"></script>
+<script defer src="../../zagrozenia/cross-user-data-leakage/scenariusze.js"></script>
+<script defer src="../../zagrozenia/improper-output-handling/scenariusze.js"></script>
+<script defer src="../../zagrozenia/excessive-agency/scenariusze.js"></script>
+<script defer src="../../assets/js/archiwum-ocen.js"></script>
+<script defer src="../../assets/js/postepy.js"></script>
+<script defer src="../../assets/js/interfejs.js"></script>
+<script defer src="../../zagrozenia/lekcja.js"></script>
+<script defer src="../../assets/js/start-strony.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+/* Kolor wyróżnień tej lekcji. Układ i typografia są w assets/css/wspolne.css. */
+body[data-route="temat/LLM-08"] {
+  --lesson-accent: #efb2a2;
+}
+
+main .mast,
+main .guide-panels {
+  --accent: var(--lesson-accent);
+}

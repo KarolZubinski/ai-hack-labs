@@ -1,0 +1,68 @@
+.case-topic a {
+  color: var(--mint);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.case-progress {
+  display: inline-flex;
+  gap: 9px;
+  align-items: center;
+  background: #19251f;
+  border: 1px solid #355640;
+  border-radius: 7px;
+  padding: 8px 13px;
+  color: var(--muted);
+}
+
+.case-progress .ic,
+.case-progress strong {
+  color: var(--mint);
+}
+
+.case-file>.rule {
+  margin-top: 0;
+}
+
+.case-file .optlist {
+  display: grid;
+  max-width: 82ch;
+}
+
+.case-file .opt input {
+  flex: none;
+}
+
+.case-file .opt {
+  align-items: baseline;
+}
+
+.case-feedback {
+  max-width: 86ch;
+}
+
+.case-feedback h2 {
+  color: var(--mint);
+}
+
+.case-feedback.retry h2 {
+  color: #f3d395;
+}
+
+.case-feedback p+p {
+  margin-top: 8px;
+}
+
+.case-feedback h3 {
+  margin: 16px 0 5px;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.case-feedback ul {
+  margin-top: 12px;
+}
+
+.case-topic {
+  margin: 18px 0;
+}

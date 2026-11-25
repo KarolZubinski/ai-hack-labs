@@ -1,0 +1,125 @@
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid #33423e;
+  border-radius: 14px;
+  background: #101a19;
+  min-height: 285px;
+  display: flex;
+  align-items: center;
+}
+
+.hero-art {
+  position: absolute;
+  z-index: -2;
+  inset: 0 0 0 auto;
+  width: 53%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 52%;
+  mask-image: linear-gradient(90deg,transparent,#000 25%);
+}
+
+.hero:after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(100deg,#15211ecc 0%,#15211e51 45%,transparent 64%);
+  pointer-events: none;
+}
+
+.hero-text {
+  padding: clamp(24px,3vw,46px);
+  width: 57%;
+  max-width: 740px;
+}
+
+.hero h1 {
+  font-size: clamp(2.4rem,3.85vw,4.25rem);
+  margin: 12px 0 10px;
+  line-height: 1.015;
+  letter-spacing: -.06em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--mint);
+}
+
+.hero p {
+  font-size: .98rem;
+  color: #c1ceca;
+  max-width: 30em;
+}
+
+@media (max-width:1150px) {
+  .hero-text {
+    width: 61%;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.65rem,4.2vw,3.8rem);
+  }
+}
+
+@media (max-width:790px) {
+  .hero {
+    min-height: 250px;
+  }
+
+  .hero-text {
+    width: 58%;
+  }
+
+  .hero-art {
+    width: 52%;
+  }
+
+  .hero h1 {
+    font-size: 2.65rem;
+  }
+}
+
+@media (max-width:570px) {
+  .hero {
+    align-items: flex-end;
+    min-height: 0;
+  }
+
+  .hero-text {
+    padding: 23px 18px;
+    width: 100%;
+  }
+
+  .hero:after {
+    background: linear-gradient(90deg,#12201c 5%,#12201cdd 43%,#12201c0a 100%);
+  }
+
+  .hero-art {
+    width: 57%;
+    height: 150px;
+    object-fit: cover;
+    object-position: center 54%;
+    top: 0;
+    opacity: .8;
+    mask-image: linear-gradient(90deg,transparent,#000 30%);
+  }
+
+  .hero h1 {
+    font-size: 2.35rem;
+    max-width: 62%;
+    margin: 14px 0;
+  }
+
+  .hero p {
+    font-size: .91rem;
+    max-width: 88%;
+    position: relative;
+  }
+
+  .hero .overline {
+    font-size: .7rem;
+  }
+}

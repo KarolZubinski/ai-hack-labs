@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0c1113">
+<meta name="description" content="Poznaj 10 zagrożeń w aplikacjach AI. Sprawdź przykładowe dane i oczekiwane wyniki testów, przećwicz ocenę zdarzeń w 100 ćwiczeniach i rozwiąż 10 spraw.">
+<title>Jak czytać dziennik · AI Hack Labs</title>
+<link rel="stylesheet" href="../assets/css/wspolne.css">
+<link rel="stylesheet" href="../wprowadzenie/style.css">
+</head>
+<body data-route="start" data-root="../">
+<a class="skip" href="#main">Przejdź do treści</a>
+<div class="shell">
+<aside id="side">
+ <a class="brand" href="../index.html" aria-label="AI Hack Labs, pulpit"><span class="brandmark" aria-hidden="true">⬡</span>AI Hack <b>Labs</b></a>
+ <nav aria-label="Nawigacja główna"><div class="navlabel">Pracownia</div><div id="mainnav"></div><div class="navlabel topics-label">Obszary tematyczne</div><div id="topicnav"></div></nav>
+ <div class="sidefoot"><span class="session-icon" data-icon="database"></span><div><strong>Zapis lokalny</strong><small id="storeStatus">W tej przeglądarce</small></div></div>
+</aside>
+<button class="shade" id="shade" aria-label="Zamknij menu" hidden></button>
+<div class="bodywrap">
+<header class="topbar"><button class="iconbtn mobilemenu" id="menu" aria-label="Otwórz nawigację" aria-expanded="false" aria-controls="side"><span data-icon="menu"></span></button><div class="crumb"><span data-icon="grid"></span><span>Pracownia</span><span class="slash">/</span><strong id="crumb">Pulpit</strong></div><span class="demo"><i></i> Tryb symulacji</span></header>
+<main id="main" tabindex="-1">
+<a class="back" href="../index.html"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m15 6-6 6 6 6"></path></svg>Pulpit</a>
+<div class="mast">
+<h1>Co naprawdę zrobił asystent?</h1>
+<p>W tym fikcyjnym przykładzie porównasz zgodę użytkowniczki, komunikat na ekranie i zapis w usłudze pocztowej.</p>
+</div>
+<article class="box starter-example">
+<h2>Zaproszenie na spotkanie</h2>
+<div class="rule"><b>Reguła aplikacji</b>Asystent może sam przygotować szkic. Wysyłka wymaga zatwierdzenia przez Ewę.</div>
+<dl class="trace">
+<div class="trace-row">
+<dt><span class="event-index">01</span>Zlecenie Ewy</dt>
+<dd>Przygotuj szkic zaproszenia na wtorek. Pokaż mi go przed wysyłką.</dd>
+</div>
+<div class="trace-row">
+<dt><span class="event-index">02</span>Odpowiedź asystenta</dt>
+<dd>Zaproszenie zostało wysłane.</dd>
+</div></dl>
+<p><strong>Czy wiesz już, że asystent wysłał zaproszenie bez zgody?</strong></p>
+<details>
+<summary>Sprawdź wniosek</summary>
+<p><strong>Za mało danych.</strong> Ewa widzi komunikat o wysyłce. Asystent mógł opisać zdarzenie błędnie. Do oceny potrzebny jest wynik operacji w poczcie i stan zgody w tej samej sprawie.</p>
+</details>
+<details>
+<summary>Odczytaj wpis z poczty</summary>
+<dl class="trace">
+<div class="trace-row">
+<dt><span class="event-index">03</span>Poczta · historia zaproszenia</dt>
+<dd>Usługa wysłała zaproszenie na wtorek z konta asystenta o 09.42. Pełna historia zgód dla tego zaproszenia jest pusta.</dd>
+</div></dl>
+<p><strong>Reguła naruszona.</strong> Teraz znamy wykonawcę, wynik wysyłki i stan zgody. Pozostaje ustalić, dlaczego aplikacja dopuściła wysyłkę.</p>
+<p><strong>Tak możesz to zgłosić.</strong> „Zleciłam tylko szkic zaproszenia na wtorek. Historia poczty potwierdza wysyłkę o 09.42 z konta asystenta. W historii tego zaproszenia brakuje mojej zgody”.</p>
+</details>
+<details>
+<summary>Kiedy wybrać „Reguła zachowana”?</summary>
+<p>Gdyby pełna historia tego zlecenia wykazała wyłącznie zapis szkicu i zero wysłanych wiadomości, reguła dotycząca wysyłki byłaby zachowana. Nadal warto zgłosić mylący komunikat asystenta.</p>
+</details>
+</article>
+<div class="actions"><a class="btn" href="../zagrozenia/direct-prompt-injection/index.html">Otwórz pierwszą lekcję</a><a class="btn border" href="../sprawy-do-zbadania/index.html#sprawy/stopka-biuletynu">Rozwiąż samodzielną sprawę</a>
+</div>
+</main>
+<footer><span>AI Hack Labs</span></footer>
+</div></div>
+<dialog id="confirmClear"><form method="dialog"><h2>Usunąć zapisane wyniki?</h2><p>Usuniesz wszystkie oceny scenariuszy, notatki i rozwiązania spraw zapisane w tej aplikacji na tym urządzeniu.</p><div class="actions"><button class="btn border" value="cancel" autofocus>Anuluj</button><button class="btn danger" value="clear">Usuń wyniki</button></div></form></dialog>
+<div id="live" role="status" aria-live="polite" class="sr"></div>
+<noscript>Włącz JavaScript, aby otworzyć laboratorium i zapisywać oceny ćwiczeń.</noscript>
+<script defer src="../assets/js/adresy.js"></script>
+<script defer src="../assets/js/biblioteka.js"></script>
+<script defer src="../zagrozenia/direct-prompt-injection/scenariusze.js"></script>
+<script defer src="../zagrozenia/instruction-override/scenariusze.js"></script>
+<script defer src="../zagrozenia/indirect-prompt-injection/scenariusze.js"></script>
+<script defer src="../zagrozenia/rag-knowledge-base-poisoning/scenariusze.js"></script>
+<script defer src="../zagrozenia/role-play-jailbreaking/scenariusze.js"></script>
+<script defer src="../zagrozenia/multilingual-and-obfuscated-prompts/scenariusze.js"></script>
+<script defer src="../zagrozenia/sensitive-information-disclosure/scenariusze.js"></script>
+<script defer src="../zagrozenia/cross-user-data-leakage/scenariusze.js"></script>
+<script defer src="../zagrozenia/improper-output-handling/scenariusze.js"></script>
+<script defer src="../zagrozenia/excessive-agency/scenariusze.js"></script>
+<script defer src="../assets/js/archiwum-ocen.js"></script>
+<script defer src="../assets/js/postepy.js"></script>
+<script defer src="../assets/js/interfejs.js"></script>
+<script defer src="../wprowadzenie/wprowadzenie.js"></script>
+<script defer src="../assets/js/start-strony.js"></script>
+</body>
+</html>
